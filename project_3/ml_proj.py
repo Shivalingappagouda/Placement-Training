@@ -173,8 +173,18 @@ def main():
     predictions= model.predict(X_test)
     print("predictions")
 
-    
-    
+    #COMPARING MODEL PREDICTION TO ACTUAL ANSWER
+    actual_wins = y_test.head(3).values
+    predicted_wins=predictions[:3]
+
+    for i in range(3) :
+        predicted = round(predicted_wins[i])
+        actual = actual_wins[i]
+        diffrence=abs(actual-predicted)
+
+        print(f"Model Gussed:{predicted}")
+        print(f"Real Answer:{actual_wins}")
+        print(f"Diffrence:{diffrence}")   
 
 if __name__ == "__main__":
     main()
